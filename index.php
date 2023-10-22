@@ -1,8 +1,8 @@
 <?php
 
-function getAmountInDollars() {
+function getAmountInDollars(int $amount) {
 
-    $amount = 42 ;
+    // $amount = 42 ;
     // var_dump($amount);
 
     $tauxDeConversion = $amount * 1.14 ;
@@ -14,7 +14,8 @@ function getAmountInDollars() {
     return $amountInDollars;
 }
 
-$dollars = getAmountInDollars();
+$dollars = getAmountInDollars(123);
 echo $dollars;
+echo getAmountInDollars(10);
 
 ?>
