@@ -1,4 +1,22 @@
-<?php
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="" method="get">
+        <label for="number">Montant à convertir</label>
+        <input type="number" name="number" id="number">
+
+        <button type="submit">COnvertir</button>
+
+    </form>
+
+    <?php
 
 // function getAmountInDollars(int $numberToConvert) {
 
@@ -19,22 +37,29 @@
 // echo $dollars;
 // echo getAmountInDollars(10);
 
-function getAmountInYens(int $numberToConvert) {
+        function getAmountInYens(int $numberToConvert) {
 
-    // $amount = 42 ;
-    // var_dump($amount);
-    $numberToConvert = $_GET['number'];
+            
+            // $amount = 42 ;
+            // var_dump($amount);
+            $numberToConvert = filter_input(INPUT_GET, 'number', FILTER_VALIDATE_FLOAT);
 
-    $tauxDeConversion = $numberToConvert * 126 ;
-    // var_dump($tauxDeConversion);
+            $tauxDeConversion = $numberToConvert * 126 ;
+            // var_dump($tauxDeConversion);
 
-    $amountInYens = $tauxDeConversion ;
-    // var_dump($amountInDollars);
+            $amountInYens = $tauxDeConversion ;
+            // var_dump($amountInDollars);
 
-    return $amountInYens;
-}
+            return $amountInYens;
 
-$yens = getAmountInYens(10);
-echo $yens;
+            
+        }
+
+        $yens = getAmountInYens(10);
+        echo $yens . "&yen";
 
 ?>
+
+
+</body>
+</html>
