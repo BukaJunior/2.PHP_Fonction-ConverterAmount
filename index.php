@@ -1,4 +1,11 @@
+<?php
 
+    function isEven ($number) {
+        
+    }
+
+
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -60,8 +67,29 @@
 
         function getConvertedAmount($numberToConvert, $nameOfCurrency) {
 
+            // Liste des devises et de leur taux de change
+            $currencies = [
+                "USD" => 1.14,
+                "JPY" => 126,
+                "ARS" => 33.18
+            ];
+
+            $numberToConvert = filter_input(INPUT_GET, 'number', FILTER_VALIDATE_FLOAT);
+
+            
+
+            // On récupere le taux de change correspondant à la devise reçue dans le parametre $nameOfCurrency
+            $rate = $currencies[$nameOfCurrency];
+
+            $convertedAmount = $numberToConvert * $rate;
+
+            return $convertedAmount;
+
         }
 
+        var_dump(getConvertedAmount(10, 'USD'));
+        var_dump(getConvertedAmount(10, 'JPY'));
+        var_dump(getConvertedAmount(10, 'ARS'));
 
 ?>
 
