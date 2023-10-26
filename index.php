@@ -1,9 +1,22 @@
 <?php
 
     function isEven ($number) {
-        
+
+        // Pour savoir si $number est paur, on va utiliser son modulo de 2 (cad le diviser par 2 et regarder le reste de la division)
+        $SommeRestante = $number % 2;
+
+        // Si le reste est égal à 0, le nombre est pair, on renvoie true
+        if( $SommeRestante == 0) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
+    var_dump(isEven(2));
+    var_dump(isEven(3));
+    var_dump(isEven(10));
+    var_dump(isEven(11));
 
 ?>
 
